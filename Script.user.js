@@ -45,10 +45,8 @@ document.addEventListener("load", function() {
             location.href = "http://mangareader.net/" + info.Name + "/" + latest.Chapter + "/" + latest.Page;
         }
     } else {
-        if (latest.Chapter <= info.Chapter) {
-            if (latest.Page <= info.Page) {
-                return;
-            }
+        if ((latest.Chapter < info.Chapter) && (latest.Page < info.Page)) {
+            return;
         }
         RecordPosition(info.Name, info.Chapter, info.Page);
         console.log("Recorded new position.");
